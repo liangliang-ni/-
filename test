@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int a[10000];
+int main()
+{
+	int i,j,k,l,r,x,t;
+	cin>>t;
+	for(int g = 0;g<t;g++)
+	{
+		cin>>l>>r;
+		a[l] = 0;
+		for(i=l;i<=r;i++)
+		{
+			k=i; 
+			while(k)
+			{
+				if(k % 7==0)
+				{
+					a[i]++;
+					k=k/7;
+				}
+				else 
+					break;	
+			} 
+			j=i;
+			while(j)
+			{
+				x=j%10;
+				if(x==7)
+					a[i]++;
+				j=j/10;
+			}
+			a[i]=a[i]+a[i-1]; 
+		}
+		cout<<a[i-1]<<endl;
+	}
+
+	return 0;
+ } 
+
+
